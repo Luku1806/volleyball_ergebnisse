@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:handball_ergebnisse/domain/league.dart';
-import 'package:handball_ergebnisse/domain/repositories/league.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/league.dart';
 
 import 'api_http_client.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/bloc/domain/districts_bloc.dart';
-import 'package:handball_ergebnisse/domain/district.dart';
-import 'package:handball_ergebnisse/pages/leagues/leagues.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/districts_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/district.dart';
+import 'package:volleyball_ergebnisse/pages/leagues/leagues.dart';
 
 class DistrictsPage extends StatefulWidget {
   final String tenantId;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/bloc/domain/games_bloc.dart';
-import 'package:handball_ergebnisse/domain/game.dart';
-import 'package:handball_ergebnisse/infrastructure/calendar_service.dart';
-import 'package:handball_ergebnisse/pages/league/widgets/games_view.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/games_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/game.dart';
+import 'package:volleyball_ergebnisse/infrastructure/calendar_service.dart';
+import 'package:volleyball_ergebnisse/pages/league/widgets/games_view.dart';
 
 class GamesPage extends StatelessWidget {
   final String? title;

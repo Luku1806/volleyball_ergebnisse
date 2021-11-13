@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/bloc/domain/tenants_bloc.dart';
-import 'package:handball_ergebnisse/domain/tenant.dart';
-import 'package:handball_ergebnisse/pages/classes/classes.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/tenants_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/tenant.dart';
+import 'package:volleyball_ergebnisse/pages/classes/classes.dart';
 
 class TenantsPage extends StatefulWidget {
   @override

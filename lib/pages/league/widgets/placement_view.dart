@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/bloc/teams_bloc.dart/games_bloc.dart';
-import 'package:handball_ergebnisse/domain/team.dart';
-import 'package:handball_ergebnisse/pages/league/widgets/placement_table.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/bloc/teams_bloc.dart/games_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/team.dart';
+import 'package:volleyball_ergebnisse/pages/league/widgets/placement_table.dart';
 
 class PlacementView extends StatefulWidget {
   final String tenantId;

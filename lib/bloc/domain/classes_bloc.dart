@@ -1,7 +1,7 @@
-import 'package:handball_ergebnisse/bloc/api/api_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/domain/class.dart';
-import 'package:handball_ergebnisse/domain/repositories/class.dart';
+import 'package:volleyball_ergebnisse/bloc/api/api_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/domain/class.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/class.dart';
 
 class ClassesBloc extends ApiBloc<List<Class>> {
   final ClassRepository _classRepo;

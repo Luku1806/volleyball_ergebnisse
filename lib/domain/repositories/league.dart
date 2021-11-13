@@ -1,4 +1,4 @@
-import 'package:handball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
 
 abstract class LeagueRepository {
   Future<List<League>> getAllByClass(String tenant, int classId);

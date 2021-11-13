@@ -1,7 +1,7 @@
-import 'package:handball_ergebnisse/bloc/api/api_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/domain/district.dart';
-import 'package:handball_ergebnisse/domain/repositories/district.dart';
+import 'package:volleyball_ergebnisse/bloc/api/api_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/domain/district.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/district.dart';
 
 class DistrictsBloc extends ApiBloc<List<District>> {
   final DistrictRepository _districtRepo;

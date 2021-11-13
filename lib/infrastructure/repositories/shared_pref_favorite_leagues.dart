@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:handball_ergebnisse/domain/league.dart';
-import 'package:handball_ergebnisse/domain/repositories/favorite_leagues.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/favorite_leagues.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefFavoriteLeaguesRepository extends FavoriteLeaguesRepository {

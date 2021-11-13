@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/bloc/domain/games_bloc.dart';
-import 'package:handball_ergebnisse/domain/game.dart';
-import 'package:handball_ergebnisse/pages/league/widgets/game_timeline.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/games_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/game.dart';
+import 'package:volleyball_ergebnisse/pages/league/widgets/game_timeline.dart';
 
 class GamesView extends StatefulWidget {
   final String tenantId;

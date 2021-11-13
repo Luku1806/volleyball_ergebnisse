@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:handball_ergebnisse/domain/team.dart';
-import 'package:handball_ergebnisse/pages/games/games.dart';
+import 'package:volleyball_ergebnisse/domain/team.dart';
+import 'package:volleyball_ergebnisse/pages/games/games.dart';
 
 class PlacementTable extends StatelessWidget {
   final List<Team> teams;

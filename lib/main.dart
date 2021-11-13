@@ -1,36 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/classes_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/districts_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/favorite_leagues_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/games_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/leagues_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/tenants_bloc.dart';
-import 'package:handball_ergebnisse/bloc/teams_bloc.dart/games_bloc.dart';
-import 'package:handball_ergebnisse/domain/repositories/class.dart';
-import 'package:handball_ergebnisse/domain/repositories/district.dart';
-import 'package:handball_ergebnisse/domain/repositories/favorite_leagues.dart';
-import 'package:handball_ergebnisse/domain/repositories/game.dart';
-import 'package:handball_ergebnisse/domain/repositories/league.dart';
-import 'package:handball_ergebnisse/domain/repositories/team.dart';
-import 'package:handball_ergebnisse/domain/repositories/tenant.dart';
-import 'package:handball_ergebnisse/infrastructure/repositories/shared_pref_favorite_leagues.dart';
-import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_district.dart';
-import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_game.dart';
-import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_league.dart';
-import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_team.dart';
-import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_tenant.dart';
-import 'package:handball_ergebnisse/pages/home/home.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/classes_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/districts_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/favorite_leagues_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/games_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/leagues_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/tenants_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/teams_bloc.dart/games_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/class.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/district.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/favorite_leagues.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/game.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/league.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/team.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/tenant.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/shared_pref_favorite_leagues.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_district.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_game.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_league.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_team.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_tenant.dart';
+import 'package:volleyball_ergebnisse/pages/home/home.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_class.dart';
 
 void main() {
   initializeDateFormatting("de_DE")
-      .then((value) => runApp(HandballErgebnisseApp()));
+      .then((value) => runApp(VolleyballErgebnisseApp()));
 }
 
-class HandballErgebnisseApp extends StatelessWidget {
+class VolleyballErgebnisseApp extends StatelessWidget {
   final tenantRepository = VolleyballErgebnisseTenantRepository();
   final classRepository = VolleyballErgebnisseClassRepository();
   final districtRepository = VolleyballErgebnisseDistrictRepository();

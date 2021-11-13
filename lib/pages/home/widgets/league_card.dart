@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:handball_ergebnisse/domain/league.dart';
-import 'package:handball_ergebnisse/pages/league/league.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/pages/league/league.dart';
 
 class LeaguePreviewCard extends StatefulWidget {
   final League league;

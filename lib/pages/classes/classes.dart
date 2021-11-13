@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/api/states.dart';
-import 'package:handball_ergebnisse/bloc/domain/classes_bloc.dart';
-import 'package:handball_ergebnisse/domain/class.dart';
-import 'package:handball_ergebnisse/domain/tenant.dart';
-import 'package:handball_ergebnisse/pages/districts/districts.dart';
+import 'package:volleyball_ergebnisse/bloc/api/states.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/classes_bloc.dart';
+import 'package:volleyball_ergebnisse/domain/class.dart';
+import 'package:volleyball_ergebnisse/domain/tenant.dart';
+import 'package:volleyball_ergebnisse/pages/districts/districts.dart';
 
 class ClassesPage extends StatefulWidget {
   final String tenantId;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:handball_ergebnisse/domain/league.dart';
-import 'package:handball_ergebnisse/pages/league/widgets/games_view.dart';
-import 'package:handball_ergebnisse/pages/league/widgets/placement_view.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/pages/league/widgets/games_view.dart';
+import 'package:volleyball_ergebnisse/pages/league/widgets/placement_view.dart';
 
 class LeaguePage extends StatefulWidget {
   final String tenantId;

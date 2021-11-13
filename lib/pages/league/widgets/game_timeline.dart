@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:handball_ergebnisse/domain/game.dart';
-import 'package:handball_ergebnisse/pages/game/game_overview.dart';
+import 'package:volleyball_ergebnisse/domain/game.dart';
+import 'package:volleyball_ergebnisse/pages/game/game_overview.dart';
 import 'package:intl/intl.dart';
 import 'package:timelines/timelines.dart';
 

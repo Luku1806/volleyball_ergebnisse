@@ -1,7 +1,7 @@
-import 'package:handball_ergebnisse/bloc/favorites/favorites_bloc.dart';
-import 'package:handball_ergebnisse/bloc/favorites/states.dart';
-import 'package:handball_ergebnisse/domain/league.dart';
-import 'package:handball_ergebnisse/domain/repositories/favorite_leagues.dart';
+import 'package:volleyball_ergebnisse/bloc/favorites/favorites_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/favorites/states.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/domain/repositories/favorite_leagues.dart';
 
 class FavoriteLeaguesBloc extends FavoritesBloc<League> {
   final FavoriteLeaguesRepository _favoriteLeaguesRepo;

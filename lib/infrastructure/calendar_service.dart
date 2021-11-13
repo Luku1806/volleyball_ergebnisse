@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:handball_ergebnisse/domain/game.dart';
+import 'package:volleyball_ergebnisse/domain/game.dart';
 import 'package:manage_calendar_events/manage_calendar_events.dart';
 import 'package:permission_handler/permission_handler.dart';
 

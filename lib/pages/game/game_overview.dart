@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:handball_ergebnisse/domain/game.dart';
+import 'package:volleyball_ergebnisse/domain/game.dart';
 import 'package:intl/intl.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 

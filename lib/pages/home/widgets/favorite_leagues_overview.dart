@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:handball_ergebnisse/bloc/domain/favorite_leagues_bloc.dart';
-import 'package:handball_ergebnisse/bloc/favorites/states.dart';
-import 'package:handball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/bloc/domain/favorite_leagues_bloc.dart';
+import 'package:volleyball_ergebnisse/bloc/favorites/states.dart';
+import 'package:volleyball_ergebnisse/domain/league.dart';
 
 import 'league_card.dart';
 

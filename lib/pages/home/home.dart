@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:handball_ergebnisse/pages/home/widgets/favorite_leagues_overview.dart';
-import 'package:handball_ergebnisse/pages/tenants/tenants.dart';
+import 'package:volleyball_ergebnisse/pages/home/widgets/favorite_leagues_overview.dart';
+import 'package:volleyball_ergebnisse/pages/tenants/tenants.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
