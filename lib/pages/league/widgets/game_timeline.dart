@@ -8,6 +8,8 @@ class GameTimeline extends StatelessWidget {
   final List<Game> games;
   final int? teamId;
 
+  final _dateTimeFormat = DateFormat.yMd("de_DE").add_Hm();
+
   GameTimeline({required this.games, this.teamId});
 
   List<Game> get _sortedGames => _sortByDate(games);
@@ -59,7 +61,7 @@ class GameTimeline extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  DateFormat('dd. MMMM yyyy HH:mm').format(game.startTime),
+                  _dateTimeFormat.format(game.startTime.toLocal()),
                   style: TextStyle(color: Colors.grey),
                 ),
                 Card(

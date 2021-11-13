@@ -41,5 +41,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCalendarsUsageDescription</key>
+    <string>Um Spiele zum Kalender hinzuzufügen muss die App die nötigen Berechtigungen für den Zugriff auf den Kalender haben.</string>
 </dict>
 </plist>

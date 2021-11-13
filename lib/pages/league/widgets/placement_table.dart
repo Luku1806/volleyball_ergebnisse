@@ -51,6 +51,7 @@ class PlacementTable extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (context) => GamesPage(
+          title: team.name,
           tenantId: team.tenant,
           leagueId: team.leagueId,
           teamId: team.id,

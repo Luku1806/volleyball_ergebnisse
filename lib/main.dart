@@ -21,11 +21,13 @@ import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebn
 import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_team.dart';
 import 'package:handball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_tenant.dart';
 import 'package:handball_ergebnisse/pages/home/home.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_class.dart';
 
 void main() {
-  runApp(HandballErgebnisseApp());
+  initializeDateFormatting("de_DE")
+      .then((value) => runApp(HandballErgebnisseApp()));
 }
 
 class HandballErgebnisseApp extends StatelessWidget {

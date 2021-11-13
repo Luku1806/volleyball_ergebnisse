@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:handball_ergebnisse/domain/game.dart';
+import 'package:intl/intl.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 
 class GameOverviewPage extends StatefulWidget {
   final Game game;
@@ -11,6 +13,8 @@ class GameOverviewPage extends StatefulWidget {
 }
 
 class _GameOverviewPageState extends State<GameOverviewPage> {
+  final _dateTimeFormat = DateFormat.yMMMMEEEEd("de_DE").add_Hm();
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -38,18 +42,32 @@ class _GameOverviewPageState extends State<GameOverviewPage> {
           ),
           ListTile(
             title: Text("Einlass"),
-            subtitle: Text(widget.game.openingTime.toString()),
+            subtitle: Text(
+              _dateTimeFormat.format(widget.game.openingTime.toLocal()),
+            ),
           ),
           ListTile(
             title: Text("Beginn"),
-            subtitle: Text(widget.game.startTime.toString()),
+            subtitle: Text(
+              _dateTimeFormat.format(widget.game.startTime.toLocal()),
+            ),
           ),
           ListTile(
             isThreeLine: true,
             title: Text("Sporthalle"),
             subtitle: Text(
-                "${widget.game.gymnasium.name}\n${widget.game.gymnasium.street}, ${widget.game.gymnasium.zip} ${widget.game.gymnasium.city}"),
-            onTap: () => {},
+                "${widget.game.gymnasium.name}, ${widget.game.gymnasium.street}, ${widget.game.gymnasium.zip} ${widget.game.gymnasium.city}"),
+            onTap: () {
+              final gym = widget.game.gymnasium;
+
+              if (gym.lat != null && gym.lon != null) {
+                MapsLauncher.launchCoordinates(gym.lat!, gym.lon!, gym.name);
+              } else {
+                MapsLauncher.launchQuery(
+                  "${gym.name}, ${gym.street}, ${gym.zip} ${gym.city}",
+                );
+              }
+            },
           )
         ],
       ),

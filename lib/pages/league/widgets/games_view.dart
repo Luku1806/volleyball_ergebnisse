@@ -10,7 +10,11 @@ class GamesView extends StatefulWidget {
   final int leagueId;
   final int? teamId;
 
-  GamesView({required this.tenantId, required this.leagueId, this.teamId});
+  GamesView({
+    required this.tenantId,
+    required this.leagueId,
+    this.teamId,
+  });
 
   @override
   State<GamesView> createState() => _GamesViewState();

@@ -16,8 +16,6 @@ class VolleyballErgebnisseGameRepository extends GameRepository {
       ),
     );
 
-    print(response.body);
-
     final gameDtos = jsonDecode(
       utf8.decode(response.bodyBytes),
     ) as List<dynamic>;

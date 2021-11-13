@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^1.0.2
   flutter_bloc: ^7.3.0
@@ -24,6 +26,9 @@ dependencies:
   path_provider: ^2.0.5
   share: ^2.0.4
   intl: ^0.17.0
+  maps_launcher: ^2.0.1
+  manage_calendar_events: ^2.0.1
+  permission_handler: ^8.2.6
 
 dev_dependencies:
   flutter_test:
