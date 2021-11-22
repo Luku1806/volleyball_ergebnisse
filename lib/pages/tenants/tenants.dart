@@ -5,6 +5,7 @@ import 'package:volleyball_ergebnisse/bloc/api/states.dart';
 import 'package:volleyball_ergebnisse/bloc/domain/tenants_bloc.dart';
 import 'package:volleyball_ergebnisse/domain/tenant.dart';
 import 'package:volleyball_ergebnisse/pages/classes/classes.dart';
+import 'package:volleyball_ergebnisse/pages/widgets/volleyball_progress_indicator.dart';
 
 class TenantsPage extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _TenantsPageState extends State<TenantsPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    context.read<TenantsBloc>().loadTenants();
+    //context.read<TenantsBloc>().loadTenants();
   }
 
   @override
@@ -32,7 +33,7 @@ class _TenantsPageState extends State<TenantsPage> {
               child: Text("Verbände konnten nicht geladen werden."),
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: VolleyballProgressIndicator());
           }
         },
       ),

@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:volleyball_ergebnisse/bloc/api/states.dart';
 import 'package:volleyball_ergebnisse/bloc/domain/classes_bloc.dart';
 import 'package:volleyball_ergebnisse/domain/class.dart';
-import 'package:volleyball_ergebnisse/domain/tenant.dart';
 import 'package:volleyball_ergebnisse/pages/districts/districts.dart';
+import 'package:volleyball_ergebnisse/pages/widgets/volleyball_progress_indicator.dart';
 
 class ClassesPage extends StatefulWidget {
   final String tenantId;
@@ -37,7 +37,7 @@ class _ClassesPageState extends State<ClassesPage> {
               child: Text("Klassen konnten nicht geladen werden."),
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: VolleyballProgressIndicator());
           }
         },
       ),

@@ -8,6 +8,7 @@ import 'package:volleyball_ergebnisse/bloc/favorites/states.dart';
 import 'package:volleyball_ergebnisse/domain/league.dart';
 import 'package:volleyball_ergebnisse/pages/league/league.dart';
 import 'package:skeleton_loader/skeleton_loader.dart';
+import 'package:volleyball_ergebnisse/pages/widgets/volleyball_progress_indicator.dart';
 
 class LeaguesPage extends StatefulWidget {
   final String tenantId;
@@ -60,7 +61,7 @@ class _LeaguesPageState extends State<LeaguesPage> {
                   child: Text("Ligen konnten nicht geladen werden."),
                 );
               } else {
-                return Center(child: CircularProgressIndicator());
+                return Center(child: VolleyballProgressIndicator());
               }
             },
           );

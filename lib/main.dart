@@ -39,6 +39,7 @@ class VolleyballErgebnisseApp extends StatelessWidget {
   final teamRepository = VolleyballErgebnisseTeamRepository();
   final favoriteLeaguesRepository = SharedPrefFavoriteLeaguesRepository();
 
+  int primaryColorHex = 0xFFd02f26;
   Map<int, Color> color = {
     50: Color(0xffd02f26),
     100: Color(0xffbb2a22),
@@ -120,9 +121,9 @@ class VolleyballErgebnisseApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'VolleyballErgebnisse',
           theme: ThemeData(
-            primarySwatch: MaterialColor(0xFFd02f26, color),
+            primarySwatch: MaterialColor(primaryColorHex, color),
             floatingActionButtonTheme: FloatingActionButtonThemeData(
-              backgroundColor: Color(0xFFd02f26),
+              backgroundColor: Color(primaryColorHex),
             ),
           ),
           home: HomePage(),

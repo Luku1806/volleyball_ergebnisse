@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:volleyball_ergebnisse/bloc/domain/favorite_leagues_bloc.dart';
 import 'package:volleyball_ergebnisse/bloc/favorites/states.dart';
 import 'package:volleyball_ergebnisse/domain/league.dart';
+import 'package:volleyball_ergebnisse/pages/widgets/volleyball_progress_indicator.dart';
 
 import 'league_card.dart';
 
@@ -32,7 +33,7 @@ class _FavoriteLeaguesOverviewState extends State<FavoriteLeaguesOverview> {
                   .toList(),
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: VolleyballProgressIndicator());
           }
         });
     throw UnimplementedError();

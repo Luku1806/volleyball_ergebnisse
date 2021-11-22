@@ -5,6 +5,7 @@ import 'package:volleyball_ergebnisse/bloc/api/states.dart';
 import 'package:volleyball_ergebnisse/bloc/domain/districts_bloc.dart';
 import 'package:volleyball_ergebnisse/domain/district.dart';
 import 'package:volleyball_ergebnisse/pages/leagues/leagues.dart';
+import 'package:volleyball_ergebnisse/pages/widgets/volleyball_progress_indicator.dart';
 
 class DistrictsPage extends StatefulWidget {
   final String tenantId;
@@ -41,7 +42,7 @@ class _DistrictsPageState extends State<DistrictsPage> {
           } else if (state is ApiErrorState<List<District>>) {
             return Center(child: Text("Could not load handball districts"));
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: VolleyballProgressIndicator());
           }
         },
       ),

@@ -4,6 +4,7 @@ import 'package:volleyball_ergebnisse/bloc/api/states.dart';
 import 'package:volleyball_ergebnisse/bloc/teams_bloc.dart/games_bloc.dart';
 import 'package:volleyball_ergebnisse/domain/team.dart';
 import 'package:volleyball_ergebnisse/pages/league/widgets/placement_table.dart';
+import 'package:volleyball_ergebnisse/pages/widgets/volleyball_progress_indicator.dart';
 
 class PlacementView extends StatefulWidget {
   final String tenantId;
@@ -41,7 +42,7 @@ class _PlacementViewState extends State<PlacementView> {
         } else if (state is ApiErrorState<List<Team>>) {
           return Center(child: Text("Tabelle konnte nicht geladen werden."));
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: VolleyballProgressIndicator());
         }
       },
     );

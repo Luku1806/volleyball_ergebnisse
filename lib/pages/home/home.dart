@@ -10,7 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final pages = [FavoriteLeaguesOverview(), Text("B")];
+  final pages = [
+    FavoriteLeaguesOverview(),
+    Center(child: Text("Zur Zeit leider noch nicht verügbar."))
+  ];
   final navigationBarItems = [
     BottomNavigationBarItem(
       icon: Icon(Icons.calendar_today_outlined),
