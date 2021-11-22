@@ -3,16 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:volleyball_ergebnisse/domain/league.dart';
 import 'package:volleyball_ergebnisse/pages/league/league.dart';
 
-class LeaguePreviewCard extends StatefulWidget {
+class LeaguePreviewListItem extends StatefulWidget {
   final League league;
 
-  LeaguePreviewCard({required this.league});
+  LeaguePreviewListItem({required this.league});
 
   @override
-  State<LeaguePreviewCard> createState() => _LeaguePreviewCardState();
+  State<LeaguePreviewListItem> createState() => _LeaguePreviewListItemState();
 }
 
-class _LeaguePreviewCardState extends State<LeaguePreviewCard> {
+class _LeaguePreviewListItemState extends State<LeaguePreviewListItem> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -20,19 +20,10 @@ class _LeaguePreviewCardState extends State<LeaguePreviewCard> {
 
   @override
   Widget build(context) {
-    return Card(
-      child: InkWell(
-        onTap: () => _openLeaguePage(context, widget.league),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title: Text(widget.league.name),
-              trailing: Icon(Icons.arrow_right_sharp),
-            )
-          ],
-        ),
-      ),
+    return ListTile(
+      title: Text(widget.league.name),
+      trailing: Icon(Icons.arrow_right_sharp),
+      onTap: () => _openLeaguePage(context, widget.league),
     );
   }
 

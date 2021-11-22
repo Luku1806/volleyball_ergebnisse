@@ -28,9 +28,12 @@ class _FavoriteLeaguesOverviewState extends State<FavoriteLeaguesOverview> {
         builder: (context, state) {
           if (state is FavoritesInitializedState<League>) {
             return ListView(
-              children: state.favorites
-                  .map((league) => LeaguePreviewCard(league: league))
-                  .toList(),
+              children: ListTile.divideTiles(
+                context: context,
+                tiles: state.favorites
+                    .map((league) => LeaguePreviewListItem(league: league))
+                    .toList(),
+              ).toList(),
             );
           } else {
             return Center(child: VolleyballProgressIndicator());

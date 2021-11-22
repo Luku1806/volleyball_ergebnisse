@@ -16,7 +16,7 @@ class _TenantsPageState extends State<TenantsPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    //context.read<TenantsBloc>().loadTenants();
+    context.read<TenantsBloc>().loadTenants();
   }
 
   @override
