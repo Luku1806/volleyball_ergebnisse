@@ -31,6 +31,7 @@ class Game {
   bool get hasData => sets.length != 0;
 
   int get homeTeamId => team1.isHost ? team1.id : team2.id;
+
   int get winnerTeamId => team1.points > team2.points ? team1.id : team2.id;
 
   factory Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);
@@ -64,6 +65,8 @@ class Gymnasium {
 
   Gymnasium(
       this.id, this.name, this.zip, this.city, this.street, this.lat, this.lon);
+
+  String get displayAddress => "$name, $street, $zip $city";
 
   factory Gymnasium.fromJson(Map<String, dynamic> json) =>
       _$GymnasiumFromJson(json);
