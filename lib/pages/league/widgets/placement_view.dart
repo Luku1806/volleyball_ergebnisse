@@ -20,9 +20,7 @@ class _PlacementViewState extends State<PlacementView> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    context
-        .read<TeamsBloc>()
-        .loadTeamsForLeague(widget.tenantId, widget.leagueId);
+    _loadTeams(context);
   }
 
   @override
@@ -31,12 +29,16 @@ class _PlacementViewState extends State<PlacementView> {
       bloc: BlocProvider.of<TeamsBloc>(context),
       builder: (context, state) {
         if (state is ApiLoadedState<List<Team>>) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: MediaQuery.of(context).size.width,
+          return RefreshIndicator(
+            onRefresh: () async => _loadTeams(context),
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minWidth: MediaQuery.of(context).size.width,
+                ),
+                child: PlacementTable(state.result),
               ),
-              child: PlacementTable(state.result),
             ),
           );
         } else if (state is ApiErrorState<List<Team>>) {
@@ -46,5 +48,11 @@ class _PlacementViewState extends State<PlacementView> {
         }
       },
     );
+  }
+
+  void _loadTeams(BuildContext context) {
+    context
+        .read<TeamsBloc>()
+        .loadTeamsForLeague(widget.tenantId, widget.leagueId);
   }
 }

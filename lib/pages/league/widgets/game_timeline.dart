@@ -64,21 +64,35 @@ class GameTimeline extends StatelessWidget {
                   _dateTimeFormat.format(game.startTime.toLocal()),
                   style: TextStyle(color: Colors.grey),
                 ),
-                Card(
-                  child: InkWell(
-                    onTap: () => _openGameOverview(context, game),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title:
-                              Text("${game.team1.name} vs ${game.team2.name}"),
-                          subtitle: Text(
-                            game.hasData
-                                ? "${game.team1.points}:${game.team2.points}"
-                                : "-:-",
-                          ),
-                        )
-                      ],
+                SizedBox(
+                  height: 100,
+                  child: Card(
+                    child: InkWell(
+                      onTap: () => _openGameOverview(context, game),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            GameCardText(
+                              text: game.team1.name,
+                              size: 14,
+                              alignment: Alignment.centerRight,
+                            ),
+                            GameCardText(
+                              text: game.hasData
+                                  ? "${game.team1.points}:${game.team2.points}"
+                                  : "-:-",
+                              size: 24,
+                              alignment: Alignment.center,
+                            ),
+                            GameCardText(
+                              text: game.team2.name,
+                              size: 14,
+                              alignment: Alignment.centerLeft,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -109,6 +123,47 @@ class GameTimeline extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => GameOverviewPage(game)),
+    );
+  }
+}
+
+class GameCardText extends StatelessWidget {
+  final String text;
+  final double size;
+  final Alignment alignment;
+  final TextAlign textAlign;
+  final int flex;
+
+  GameCardText(
+      {Key? key,
+      required this.text,
+      required this.size,
+      required this.alignment,
+      this.flex = 1})
+      : textAlign = alignment == Alignment.centerLeft
+            ? TextAlign.left
+            : alignment == Alignment.centerRight
+                ? TextAlign.right
+                : TextAlign.center,
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      fit: FlexFit.loose,
+      flex: flex,
+      child: Align(
+        alignment: alignment,
+        child: Text(
+          text,
+          textAlign: textAlign,
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: size,
+          ),
+        ),
+      ),
     );
   }
 }

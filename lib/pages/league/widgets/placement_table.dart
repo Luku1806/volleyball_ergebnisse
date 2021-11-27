@@ -13,8 +13,8 @@ class PlacementTable extends StatelessWidget {
     return DataTable(
       columnSpacing: 8,
       columns: [
-        DataColumn(label: Text(""), numeric: false),
-        DataColumn(label: Text(""), numeric: false),
+        DataColumn(label: Text(""), numeric: true),
+        DataColumn(label: Text("Team"), numeric: false),
         DataColumn(label: Text("Sp."), numeric: true),
         DataColumn(label: Text("S."), numeric: true),
         DataColumn(label: Text("Gw."), numeric: true),
@@ -36,12 +36,21 @@ class PlacementTable extends StatelessWidget {
   DataRow _toTeamDataRow(BuildContext context, Team team) {
     return DataRow(
       cells: [
-        DataCell(Text(team.placement.toString())),
+        DataCell(Padding(
+          padding: const EdgeInsets.only(right: 16.0),
+          child: Text(
+            team.placement.toString(),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+        )),
         DataCell(Text(team.name), onTap: () => _openGamesPage(context, team)),
         DataCell(Text(team.games.toString())),
         DataCell(Text("${team.wonSets}:${team.lostSets}")),
         DataCell(Text(team.gamesWon.toString())),
-        DataCell(Text(team.points.toString())),
+        DataCell(Padding(
+          padding: EdgeInsets.only(right: 8.0),
+          child: Text(team.points.toString()),
+        )),
       ],
     );
   }
