@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:volleyball_ergebnisse/bloc/api/states.dart';
 import 'package:volleyball_ergebnisse/bloc/domain/games_bloc.dart';
@@ -31,7 +32,10 @@ class _GamesViewState extends State<GamesView> {
   @override
   Widget build(context) {
     return RefreshIndicator(
-      onRefresh: () async => _loadGames(context),
+      onRefresh: () async {
+        HapticFeedback.mediumImpact();
+        _loadGames(context);
+      },
       child: BlocBuilder(
         bloc: BlocProvider.of<GamesBloc>(context),
         builder: (context, state) {

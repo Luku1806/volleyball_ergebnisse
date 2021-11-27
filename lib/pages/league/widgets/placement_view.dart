@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:volleyball_ergebnisse/bloc/api/states.dart';
 import 'package:volleyball_ergebnisse/bloc/teams_bloc.dart/games_bloc.dart';
@@ -30,12 +31,18 @@ class _PlacementViewState extends State<PlacementView> {
       builder: (context, state) {
         if (state is ApiLoadedState<List<Team>>) {
           return RefreshIndicator(
-            onRefresh: () async => _loadTeams(context),
+            onRefresh: () async {
+              HapticFeedback.mediumImpact();
+              _loadTeams(context);
+            },
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  minWidth: MediaQuery.of(context).size.width,
+                  minWidth: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                 ),
                 child: PlacementTable(state.result),
               ),

@@ -84,6 +84,8 @@ class _GameOverviewPageState extends State<GameOverviewPage> {
       new ClipboardData(text: widget.game.gymnasium.displayAddress),
     );
 
+    HapticFeedback.mediumImpact();
+
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
