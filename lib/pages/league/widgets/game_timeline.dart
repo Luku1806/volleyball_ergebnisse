@@ -4,19 +4,47 @@ import 'package:volleyball_ergebnisse/pages/game/game_overview.dart';
 import 'package:intl/intl.dart';
 import 'package:timelines/timelines.dart';
 
-class GameTimeline extends StatelessWidget {
+class GameTimeline extends StatefulWidget {
+  final _tileHeight = 150.0;
+
   final List<Game> games;
   final int? teamId;
 
-  final _dateTimeFormat = DateFormat.yMd("de_DE").add_Hm();
-
   GameTimeline({required this.games, this.teamId});
 
-  List<Game> get _sortedGames => _sortByDate(games);
+  @override
+  State<GameTimeline> createState() => _GameTimelineState();
+}
+
+class _GameTimelineState extends State<GameTimeline> {
+  late final ScrollController _scrollController;
+
+  final _dateTimeFormat = DateFormat.yMd("de_DE").add_Hm();
+
+  List<Game> get _sortedGames => _sortByDate(widget.games);
+
+  @override
+  void initState() {
+    final nextGameIndex = widget.games.indexOf(nextGame);
+    _scrollController = ScrollController(
+      initialScrollOffset: nextGameIndex * widget._tileHeight,
+    );
+
+    super.initState();
+  }
+
+  Game get nextGame {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+
+    return widget.games.firstWhere((game) => game.startTime.isAfter(today),
+        orElse: () => widget.games.last);
+  }
 
   @override
   Widget build(context) {
     return Timeline.tileBuilder(
+      controller: _scrollController,
       theme: TimelineThemeData(
         nodePosition: 0.05,
         connectorTheme: ConnectorThemeData(
@@ -55,59 +83,62 @@ class GameTimeline extends StatelessWidget {
         contentsBuilder: (context, index) {
           final game = _sortedGames.elementAt(index);
 
-          return Padding(
-            padding: EdgeInsets.fromLTRB(6.0, 16.0, 6.0, 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _dateTimeFormat.format(game.startTime.toLocal()),
-                  style: TextStyle(color: Colors.grey),
-                ),
-                SizedBox(
-                  height: 100,
-                  child: Card(
-                    child: InkWell(
-                      onTap: () => _openGameOverview(context, game),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            GameCardText(
-                              text: game.team1.name,
-                              size: 14,
-                              alignment: Alignment.centerRight,
-                            ),
-                            GameCardText(
-                              text: game.hasData
-                                  ? "${game.team1.points}:${game.team2.points}"
-                                  : "-:-",
-                              size: 24,
-                              alignment: Alignment.center,
-                            ),
-                            GameCardText(
-                              text: game.team2.name,
-                              size: 14,
-                              alignment: Alignment.centerLeft,
-                            ),
-                          ],
+          return SizedBox(
+            height: widget._tileHeight,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(6.0, 16.0, 6.0, 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _dateTimeFormat.format(game.startTime.toLocal()),
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    height: 100,
+                    child: Card(
+                      child: InkWell(
+                        onTap: () => _openGameOverview(context, game),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              GameCardText(
+                                text: game.team1.name,
+                                size: 14,
+                                alignment: Alignment.centerRight,
+                              ),
+                              GameCardText(
+                                text: game.hasData
+                                    ? "${game.team1.points}:${game.team2.points}"
+                                    : "-:-",
+                                size: 24,
+                                alignment: Alignment.center,
+                              ),
+                              GameCardText(
+                                text: game.team2.name,
+                                size: 14,
+                                alignment: Alignment.centerLeft,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
-        itemCount: games.length,
+        itemCount: widget.games.length,
       ),
     );
   }
 
   Color? colorForResult(Game game) {
-    return teamId != null
-        ? game.winnerTeamId == teamId
+    return widget.teamId != null
+        ? game.winnerTeamId == widget.teamId
             ? Color(0xff6ad192)
             : Color(0xffff5454)
         : null;

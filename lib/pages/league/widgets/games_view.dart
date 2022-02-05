@@ -40,7 +40,7 @@ class _GamesViewState extends State<GamesView> {
         bloc: BlocProvider.of<GamesBloc>(context),
         builder: (context, state) {
           if (state is ApiLoadedState<List<Game>>) {
-            return GameTimeline(games: state.result, teamId: widget.teamId);
+            return GameTimeline(games: state.result, teamId: widget.teamId, );
           } else if (state is ApiErrorState<List<Game>>) {
             return Center(child: Text("Spiele konnten nicht geladen werden."));
           } else {
