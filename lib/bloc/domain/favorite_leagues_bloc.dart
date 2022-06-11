@@ -19,6 +19,7 @@ class FavoriteLeaguesBloc extends FavoritesBloc<League> {
 
       emit(FavoritesInitializedState(_favoriteLeagues!));
     } catch (e) {
+      print(e);
       emit(FavoritesErrorState());
     }
   }

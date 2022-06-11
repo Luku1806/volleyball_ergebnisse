@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-class HandballErgebnisseApiHttpClient extends http.BaseClient {
+class VolleyballErgebnisseApiHttpClient extends http.BaseClient {
   static const BASE_URL =
       "https://volleyball-ergebnisse.reiningapps.de/api/v1";
 

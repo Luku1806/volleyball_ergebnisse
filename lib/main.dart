@@ -14,8 +14,11 @@ import 'package:volleyball_ergebnisse/domain/repositories/game.dart';
 import 'package:volleyball_ergebnisse/domain/repositories/league.dart';
 import 'package:volleyball_ergebnisse/domain/repositories/team.dart';
 import 'package:volleyball_ergebnisse/domain/repositories/tenant.dart';
-import 'package:volleyball_ergebnisse/infrastructure/repositories/shared_pref_favorite_leagues.dart';
+import 'package:volleyball_ergebnisse/infrastructure/notifications/notification_action_service.dart';
+import 'package:volleyball_ergebnisse/infrastructure/notifications/notification_registration_service.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_class.dart';
 import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_district.dart';
+import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_favorite_leagues.dart';
 import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_game.dart';
 import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_league.dart';
 import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_team.dart';
@@ -23,11 +26,23 @@ import 'package:volleyball_ergebnisse/infrastructure/repositories/volleyballerge
 import 'package:volleyball_ergebnisse/pages/home/home.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-import 'infrastructure/repositories/volleyballergebnisse/volleyball_ergebnisse_class.dart';
+final notificationRegistrationService = NotificationRegistrationService();
+final notificationActionService = NotificationActionService();
+
+void registerNotifications() async {
+  await notificationRegistrationService.registerDevice();
+
+  notificationActionService.actionTriggered.listen((event) {
+    print(event);
+  });
+
+  await notificationActionService.checkLaunchAction();
+}
 
 void main() {
   initializeDateFormatting("de_DE")
-      .then((value) => runApp(VolleyballErgebnisseApp()));
+      .then((value) => runApp(VolleyballErgebnisseApp()))
+      .then((value) => registerNotifications());
 }
 
 class VolleyballErgebnisseApp extends StatelessWidget {
@@ -37,7 +52,8 @@ class VolleyballErgebnisseApp extends StatelessWidget {
   final leagueRepository = VolleyballErgebnisseLeagueRepository();
   final gameRepository = VolleyballErgebnisseGameRepository();
   final teamRepository = VolleyballErgebnisseTeamRepository();
-  final favoriteLeaguesRepository = SharedPrefFavoriteLeaguesRepository();
+  final favoriteLeaguesRepository =
+      VolleyballErgebnisseFavoriteLeaguesRepository();
 
   int primaryColorHex = 0xFFd02f26;
   Map<int, Color> color = {

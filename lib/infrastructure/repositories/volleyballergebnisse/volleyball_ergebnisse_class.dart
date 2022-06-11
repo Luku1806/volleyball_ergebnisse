@@ -10,11 +10,11 @@ class VolleyballErgebnisseClassRepository implements ClassRepository {
   Future<List<Class>> getAll(
     String tenant,
   ) async {
-    final client = HandballErgebnisseApiHttpClient();
+    final client = VolleyballErgebnisseApiHttpClient();
 
     final response = await client.get(
       Uri.parse(
-        '${HandballErgebnisseApiHttpClient.BASE_URL}/classes/$tenant',
+        '${VolleyballErgebnisseApiHttpClient.BASE_URL}/classes/$tenant',
       ),
     );
 

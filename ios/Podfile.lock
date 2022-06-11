@@ -1,6 +1,10 @@
 PODS:
+  - device_info_plus (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_pdfview (1.0.2):
+    - Flutter
+  - flutter_secure_storage (3.3.1):
     - Flutter
   - manage_calendar_events (0.0.1):
     - Flutter
@@ -18,8 +22,10 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_pdfview (from `.symlinks/plugins/flutter_pdfview/ios`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - manage_calendar_events (from `.symlinks/plugins/manage_calendar_events/ios`)
   - maps_launcher (from `.symlinks/plugins/maps_launcher/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
@@ -29,10 +35,14 @@ DEPENDENCIES:
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 EXTERNAL SOURCES:
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
   flutter_pdfview:
     :path: ".symlinks/plugins/flutter_pdfview/ios"
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   manage_calendar_events:
     :path: ".symlinks/plugins/manage_calendar_events/ios"
   maps_launcher:
@@ -49,8 +59,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_pdfview: 25f53dd6097661e6395b17de506e6060585946bd
+  flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   manage_calendar_events: 0338d505ea26cdfd20cd883279bc28afa11eca34
   maps_launcher: 2e5b6a2d664ec6c27f82ffa81b74228d770ab203
   path_provider_ios: 7d7ce634493af4477d156294792024ec3485acd5
@@ -61,4 +73,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

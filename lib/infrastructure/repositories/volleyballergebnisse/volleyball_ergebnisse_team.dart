@@ -9,11 +9,11 @@ import 'api_http_client.dart';
 class VolleyballErgebnisseTeamRepository implements TeamRepository {
   @override
   Future<List<Team>> getAll(String tenant, int leagueId) async {
-    final client = HandballErgebnisseApiHttpClient();
+    final client = VolleyballErgebnisseApiHttpClient();
 
     final response = await client.get(
       Uri.parse(
-        '${HandballErgebnisseApiHttpClient.BASE_URL}/teams/$tenant/$leagueId',
+        '${VolleyballErgebnisseApiHttpClient.BASE_URL}/teams/$tenant/$leagueId',
       ),
     );
 

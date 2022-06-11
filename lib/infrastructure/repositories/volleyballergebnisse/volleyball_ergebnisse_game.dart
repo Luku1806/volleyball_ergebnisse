@@ -8,11 +8,11 @@ import 'api_http_client.dart';
 class VolleyballErgebnisseGameRepository extends GameRepository {
   @override
   Future<List<Game>> getAllByLeague(String tenant, int leagueId) async {
-    final client = HandballErgebnisseApiHttpClient();
+    final client = VolleyballErgebnisseApiHttpClient();
 
     final response = await client.get(
       Uri.parse(
-        '${HandballErgebnisseApiHttpClient.BASE_URL}/schedules/$tenant/$leagueId',
+        '${VolleyballErgebnisseApiHttpClient.BASE_URL}/schedules/$tenant/$leagueId',
       ),
     );
 
@@ -29,11 +29,11 @@ class VolleyballErgebnisseGameRepository extends GameRepository {
     int leagueId,
     int teamId,
   ) async {
-    final client = HandballErgebnisseApiHttpClient();
+    final client = VolleyballErgebnisseApiHttpClient();
 
     final response = await client.get(
       Uri.parse(
-        '${HandballErgebnisseApiHttpClient.BASE_URL}/schedules/$tenant/$leagueId/$teamId',
+        '${VolleyballErgebnisseApiHttpClient.BASE_URL}/schedules/$tenant/$leagueId/$teamId',
       ),
     );
 

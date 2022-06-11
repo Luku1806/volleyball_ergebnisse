@@ -14,6 +14,9 @@
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		A8683416E1F23A8CD2F5D2CD /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B3B177BE9D868C55C4C144 /* Pods_Runner.framework */; };
 		D840F0E827400D8000A08BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D840F0E727400D7F00A08BCA /* Assets.xcassets */; };
+		D8D42FBD2855498800CB66C0 /* NotificationRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D42FBA2855498800CB66C0 /* NotificationRegistrationService.swift */; };
+		D8D42FBE2855498800CB66C0 /* NotificationActionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D42FBB2855498800CB66C0 /* NotificationActionService.swift */; };
+		D8D42FBF2855498800CB66C0 /* DeviceInstallationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D42FBC2855498800CB66C0 /* DeviceInstallationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +50,10 @@
 		D81CC76B27493BE60036EBCC /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		D840F0E727400D7F00A08BCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D840F0E92740105B00A08BCA /* RunnerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunnerRelease.entitlements; sourceTree = "<group>"; };
+		D8D42FBA2855498800CB66C0 /* NotificationRegistrationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRegistrationService.swift; sourceTree = "<group>"; };
+		D8D42FBB2855498800CB66C0 /* NotificationActionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationActionService.swift; sourceTree = "<group>"; };
+		D8D42FBC2855498800CB66C0 /* DeviceInstallationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInstallationService.swift; sourceTree = "<group>"; };
+		D8D42FC1285553BA00CB66C0 /* RunnerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunnerDebug.entitlements; sourceTree = "<group>"; };
 		F77153D7F442A81CDE961118 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		FD5CE14C530E35CE66F444C5 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +111,8 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
-				D81CC76B27493BE60036EBCC /* Runner.entitlements */,
+				D8D42FC1285553BA00CB66C0 /* RunnerDebug.entitlements */,
+				D8D42FC02855498F00CB66C0 /* Services */,
 				D840F0E92740105B00A08BCA /* RunnerRelease.entitlements */,
 				D840F0E727400D7F00A08BCA /* Assets.xcassets */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
@@ -126,6 +134,17 @@
 				FD5CE14C530E35CE66F444C5 /* Pods-Runner.profile.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D8D42FC02855498F00CB66C0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D8D42FBC2855498800CB66C0 /* DeviceInstallationService.swift */,
+				D8D42FBA2855498800CB66C0 /* NotificationRegistrationService.swift */,
+				D8D42FBB2855498800CB66C0 /* NotificationActionService.swift */,
+				D81CC76B27493BE60036EBCC /* Runner.entitlements */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,8 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D42FBE2855498800CB66C0 /* NotificationActionService.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
+				D8D42FBF2855498800CB66C0 /* DeviceInstallationService.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				D8D42FBD2855498800CB66C0 /* NotificationRegistrationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +511,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Runner/RunnerDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QPZS84757G;
 				ENABLE_BITCODE = NO;
@@ -501,6 +525,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.lukasreining.volleyballergebnisse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -515,6 +540,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/RunnerRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QPZS84757G;
 				ENABLE_BITCODE = NO;
@@ -526,6 +553,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.lukasreining.volleyballergebnisse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
